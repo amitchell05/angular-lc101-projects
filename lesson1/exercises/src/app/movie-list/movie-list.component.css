@@ -3,6 +3,10 @@ li {
 	color: #2369af;
 }
 
+h3 {
+	text-decoration: underline;
+}
+
 li {
 	text-align: center;
 	font-size: 1.5rem;

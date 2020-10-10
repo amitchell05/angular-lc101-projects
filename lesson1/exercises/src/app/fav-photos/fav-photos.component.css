@@ -1,9 +1,12 @@
 h3 {
 	color: brown;
+	text-decoration: underline;
 }
 
 img {
-	width: 300px;
+	width: 250px;
+	border: 5px dashed white;
+	margin-top: 10px;
 }
 
 .photos {

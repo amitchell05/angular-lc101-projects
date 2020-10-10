@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+	background-image: url("https://img.freepik.com/free-photo/dog-welsh-corgi-sit-white-background-with-wooden-map-little-corgi-pet-want-travel-waiting-adventures_221769-264.jpg?size=626&ext=jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
