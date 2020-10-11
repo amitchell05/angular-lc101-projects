@@ -14,8 +14,14 @@ export class MovieListComponent implements OnInit {
    }
 
    addMovie (newTitle: string) {
+      let errorMessage = '';
       if(!(this.movies.includes(newTitle)) && newTitle !== '') {
          this.movies.push(newTitle);
+      } else if (this.movies.includes(newTitle)) {
+         errorMessage = `${newTitle} is already in your movie list.`;
+      } else if (newTitle === '') {
+         errorMessage =  'Please enter a movie title.';
       }
+      return errorMessage;
    }
 }
