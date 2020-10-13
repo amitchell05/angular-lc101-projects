@@ -1,0 +1,9 @@
+<div class="buttons">
+    <h3>{{buttonHeading}}</h3>
+    <div (mouseout)="inactive = false">
+        <button class="gold" [class.gold]="!inactive" [disabled]="inactive" (mouseover)="inactive = true">Frustration Incarnate!</button> <hr>
+    </div>
+    <div [align]="location" (mouseover)="location = shiftLocation(location)">
+        <button class="silver">Catch Me!</button>
+    </div>
+ </div>
