@@ -12,6 +12,7 @@ export class AppComponent {
   height = 0;
   width = 0;
   message = 'Space shuttle ready for takeoff!';
+  takeOffEnabled: boolean = true;
 
   handleTakeOff() {
     let result = window.confirm('Are you sure the shuttle is ready for takeoff?');
@@ -20,6 +21,7 @@ export class AppComponent {
       this.height = 10000;
       this.width = 0;
       this.message = 'Shuttle in flight.';
+      this.takeOffEnabled = false;
     }
   }
 
@@ -31,6 +33,7 @@ export class AppComponent {
       this.width = 0;
       this.message = 'The shuttle has landed.';
       rocketImage.style.bottom = '0px';
+      this.takeOffEnabled = true;
     }
   }
 
@@ -42,26 +45,39 @@ export class AppComponent {
       this.width = 0;
       this.message = 'Mission aborted.';
       rocketImage.style.bottom = '0px';
+      this.takeOffEnabled = true;
     }
   }
 
   moveRocket(rocketImage, direction) {
-    if (direction === 'right') {
+    if (direction === 'right' && this.width < 470000) {
       let movement = parseInt(rocketImage.style.left) + 10 + 'px';
       rocketImage.style.left = movement;
       this.width = this.width + 10000;
-    } else if (direction === 'left') {
+      this.color = 'blue';
+    } else if (direction === 'left' && this.width > -20000) {
       let movement = parseInt(rocketImage.style.left) - 10 + 'px';
       rocketImage.style.left = movement;
       this.width = this.width - 10000;
-    } else if (direction === 'up') {
+      this.color = 'blue'
+    } else if (direction === 'up' && this.height < 340000) {
       let movement = parseInt(rocketImage.style.bottom) + 10 + 'px';
       rocketImage.style.bottom = movement;
       this.height = this.height + 10000;
-    } else if (direction === 'down') {
+      this.color = 'blue';
+    } else if (direction === 'down' && this.height > 0) {
       let movement = parseInt(rocketImage.style.bottom) - 10 + 'px';
       rocketImage.style.bottom = movement;
       this.height = this.height - 10000;
+      this.color = 'blue';
+    }
+  }
+
+  handleOutOfBounds() {
+    if (this.width <= -20000 || this.width >= 470000) {
+      this.color = 'orange';
+    } else if (this.height === 0 || this.height >= 340000) {
+      this.color = 'orange';
     }
   }
 }
