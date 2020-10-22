@@ -23,10 +23,10 @@
 
       <div class="col-3">
          <div *ngIf="!takeOffEnabled" class="container-right">
-            <button (click)="moveRocket(rocketImage, 'up'); handleOutOfBounds();">Up</button>
-            <button (click)="moveRocket(rocketImage, 'down'); handleOutOfBounds();">Down</button>
-            <button (click)="moveRocket(rocketImage, 'right'); handleOutOfBounds();">Right</button>
-            <button (click)="moveRocket(rocketImage, 'left'); handleOutOfBounds();">Left</button>
+            <button (click)="moveRocket(rocketImage, 'up'); handleOutOfBounds('up');" [disabled]="!upEnabled">Up</button>
+            <button (click)="moveRocket(rocketImage, 'down'); handleOutOfBounds('down');" [disabled]="!downEnabled">Down</button>
+            <button (click)="moveRocket(rocketImage, 'right'); handleOutOfBounds('right');" [disabled]="!rightEnabled">Right</button>
+            <button (click)="moveRocket(rocketImage, 'left'); handleOutOfBounds('left');" [disabled]="!leftEnabled">Left</button>
             <h3>Space Shuttle Height</h3>
             <p>{{height}} km</p>
          </div>
